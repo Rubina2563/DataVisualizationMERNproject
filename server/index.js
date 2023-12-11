@@ -14,7 +14,8 @@ import gerenalRoutes from "./routes/gerenal.js";
 import User from './models/User.js';
 import Product from './models/Product.js';
 import ProductStat from './models/ProductStat.js';
-import { dataUser,dataProduct,dataProductStat } from './data/index.js';
+import Transaction from './models/Transaction.js';
+import { dataUser,dataProduct,dataProductStat,dataTransaction } from './data/index.js';
 
 /* BOILER PLATE FOR CONFIGURATION AND SERVER SECURITY*/
 dotenv.config();
@@ -46,5 +47,6 @@ mongoose.connect(process.env.MONGO_URL, {
    // Product.insertMany(dataProduct);
    // ProductStat.insertMany(dataProductStat);
    // User.insertMany(dataUser);
+   //Transaction.insertMany(dataTransaction);
 
 }).catch((error)=>console.log(`${error} did not connect`))
