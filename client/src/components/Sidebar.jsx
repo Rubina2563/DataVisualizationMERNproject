@@ -28,6 +28,7 @@ CalendarMonthOutlined,
 AdminPanelSettingsOutlined,
 TrendingUpOutlined,
 PieChartOutlined } from '@mui/icons-material';
+
 import { useEffect,useState } from 'react';
 import { useLocation,useNavigate } from 'react-router-dom';
 import FlexBetween from './FlexBetween';
@@ -122,10 +123,10 @@ useEffect(()=>{
     setActive(pathname.substring(1));
 },[pathname]);
 
-  return (
-    <Box component="nav">
+  return <Box component="nav">
         {
             isSidebarOpen && (
+              
                 <Drawer 
                 open={isSidebarOpen}
                 onClose={()=>setIsSidebarOpen(false)}
@@ -156,11 +157,9 @@ useEffect(()=>{
 
                             {!isNonMbile && (
                             <IconButton onClick={()=>setIsSidebarOpen(!isSidebarOpen)}>
-                            <ChevronLeft/>
+                            <ChevronLeft />
                             </IconButton>
                              )}
-
-
                          </FlexBetween>
                         </Box>
 
@@ -207,7 +206,9 @@ useEffect(()=>{
                             })}
                         </List>
                     </Box>
-<Box m="1.25rem 1.25rem 1.25rem 1.25rem">
+
+
+                        <Box position="relative" m="1.25rem 1.25rem 1.25rem 1.25rem">
                         <Divider/>
                         <FlexBetween textTransform="none" gap="1rem" m="1.5rem 2rem 0 3rem">
                             <Box
@@ -229,20 +230,19 @@ useEffect(()=>{
                                 </Typography>
                                 
                                 </Box>
-<SettingsOutlined
-sx={{color:theme.palette.secondary[300] , fontSize:"25 px"}}
-/>
-                          
-                        </FlexBetween>
-                        
+
+                                 <SettingsOutlined
+                                    sx={{color:theme.palette.secondary[300] , fontSize:"25 px"}}
+                                     /> 
+                        </FlexBetween>  
                     </Box>
 
                   
                 </Drawer>
             )
         }
-    </Box>
-  )
-}
+    
 
-export default Sidebar
+    </Box>; }
+
+export default Sidebar;

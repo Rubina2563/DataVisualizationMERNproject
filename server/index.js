@@ -12,7 +12,9 @@ import gerenalRoutes from "./routes/gerenal.js";
 
 //data imports
 import User from './models/User.js';
-import { dataUser } from './data/index.js';
+import Product from './models/Product.js';
+import ProductStat from './models/ProductStat.js';
+import { dataUser,dataProduct,dataProductStat } from './data/index.js';
 
 /* BOILER PLATE FOR CONFIGURATION AND SERVER SECURITY*/
 dotenv.config();
@@ -41,6 +43,8 @@ mongoose.connect(process.env.MONGO_URL, {
     app.listen(PORT, ()=>console.log(`SERVER PORT:${PORT}`));
     
     /*ONLY ADD DATA ONE TIME*/
+   // Product.insertMany(dataProduct);
+   // ProductStat.insertMany(dataProductStat);
    // User.insertMany(dataUser);
 
 }).catch((error)=>console.log(`${error} did not connect`))
